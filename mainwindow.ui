@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Android_backup</class>
+ <widget class="QMainWindow" name="Android_backup">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>782</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>782</width>
+    <height>436</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>782</width>
+    <height>436</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ADBackup</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="bcm">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Backup mode</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="inm">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>390</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Install mode</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Bc_widget" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>791</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <widget class="QGroupBox" name="bcMode">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>200</y>
+       <width>161</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Apps backup mode</string>
+     </property>
+     <widget class="QRadioButton" name="Rbt1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>27</y>
+        <width>90</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>All apps</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="Rbt2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>57</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Installed by user only</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="Rbt3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>87</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>System apps only</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPlainTextEdit" name="dvcsOut">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>161</width>
+       <height>141</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="StartBt">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>330</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="shLogs">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>300</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show logs</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>-3</y>
+       <width>591</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>150</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>=)</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hdLogs">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>300</y>
+       <width>181</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hide logs</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dvcsBt">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>161</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Find connected devices</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="selAll">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>60</y>
+       <width>77</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select all</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="get_pkgList">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>30</y>
+       <width>201</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Update packages list</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="LogsOut">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>29</y>
+       <width>381</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>330</y>
+       <width>491</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="pkgList">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>81</y>
+       <width>201</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bresel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>330</y>
+       <width>161</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reselect</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Ins_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="ifnddvcs">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>21</y>
+       <width>171</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Find connected devices</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="idvcsList">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>51</y>
+       <width>171</width>
+       <height>131</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="imode">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>211</y>
+       <width>171</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Installation mode</string>
+     </property>
+     <widget class="QRadioButton" name="irbc1">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>26</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Auto - for much packages</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="irbc2">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>47</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Single apk</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="irbc3">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>70</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Single apk bundle</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="selfldr">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>318</y>
+       <width>81</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>select folder</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="inotc">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>621</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;If you selected &amp;quot;Auto&amp;quot; or &amp;quot;Single apk bundle&amp;quot; make sure that your apk bundles located inside different folders&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="scanfldr">
+     <property name="geometry">
+      <rect>
+       <x>389</x>
+       <y>21</y>
+       <width>201</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Scan selected folder</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="iselall">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>51</y>
+       <width>77</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select all</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="ipkgList">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>81</y>
+       <width>201</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ihdlogs">
+     <property name="geometry">
+      <rect>
+       <x>251</x>
+       <y>21</y>
+       <width>131</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hide logs</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ishlogs">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>21</y>
+       <width>131</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show logs</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="istartBt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>21</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="ilogsOut">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>51</y>
+       <width>361</width>
+       <height>291</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="iprogressBar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>351</y>
+       <width>751</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>171</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(=&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="selfldr_2">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>318</y>
+       <width>81</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>reselect</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="rii">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>188</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Replace if installed</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>395</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>You don't selected any packages</string>
+    </property>
+   </widget>
+   <zorder>bcm</zorder>
+   <zorder>inm</zorder>
+   <zorder>label_3</zorder>
+   <zorder>Bc_widget</zorder>
+   <zorder>Ins_widget</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>782</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

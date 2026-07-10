@@ -1,0 +1,28 @@
+# Build
+build/
+build-*/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Qt Creator
+*.pro.user
+*.user
+*.autosave
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.obj
+*.o
+*.pdb
+
+# Logs
+logs/
