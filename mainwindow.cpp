@@ -365,6 +365,7 @@ void MainWindow::on_StartBt_clicked() {
         if (!state) continue;
 
         std::string query = "pm path "; query += name;
+        ui->LogsOut->appendPlainText(">>>./adb shell" + QString::fromStdString(query));
         log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
         log("./adb shell " + QString::fromStdString(query));
 
@@ -374,6 +375,9 @@ void MainWindow::on_StartBt_clicked() {
         process.waitForFinished();
 
         QString PKGpaths = process.readAllStandardOutput();
+        log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
+        log(PKGpaths);
+
         QTextStream Qst(&PKGpaths);
 
         std::string pkg_path = home_path; pkg_path += name;
@@ -727,7 +731,7 @@ void MainWindow::on_istartBt_clicked() {
         ui->ilogsOut->appendPlainText(">>>./adb install-multiple ");
         QTextCursor cursor = ui->ilogsOut->textCursor();
         cursor.movePosition(QTextCursor::End);
-        ui->LogsOut->setTextCursor(cursor);
+        ui->ilogsOut->setTextCursor(cursor);
 
         QString to_log = "./adb install-multiple ";
 
@@ -749,7 +753,7 @@ void MainWindow::on_istartBt_clicked() {
 
         } ui->ilogsOut->insertPlainText("\n"); to_log += "\n";
         cursor.movePosition(QTextCursor::End);
-        ui->LogsOut->setTextCursor(cursor);
+        ui->ilogsOut->setTextCursor(cursor);
 
         log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
         log(to_log);
