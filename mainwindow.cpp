@@ -63,9 +63,9 @@ void MainWindow::log(const QString text) {
 void MainWindow::on_dvcsBt_clicked() {
     QProcess process;
 
-    ui->LogsOut->appendPlainText(">>>./adb devices\n");
-    log(">>>./adb devices\n");
-    process.start("./adb", {"devices"});
+    ui->LogsOut->appendPlainText(">>>adb devices\n");
+    log(">>>adb devices\n");
+    process.start("adb", {"devices"});
     process.waitForFinished();
 
     QString out = process.readAllStandardOutput();
@@ -135,12 +135,12 @@ void MainWindow::on_get_pkgList_clicked() {
     get_pkgList_clicked = true;
 
     if (argueNum == 0) {
-        ui->LogsOut->appendPlainText(">>>./adb shell pm list packages\n");
+        ui->LogsOut->appendPlainText(">>>adb shell pm list packages\n");
 
-        log(">>>./adb shell pm list packages\n");
+        log(">>>adb shell pm list packages\n");
         QProcess process;
 
-        process.start("./adb", {"shell", "pm list packages"});
+        process.start("adb", {"shell", "pm list packages"});
         process.waitForFinished();
 
         QString pr_out = process.readAllStandardOutput();
@@ -150,12 +150,12 @@ void MainWindow::on_get_pkgList_clicked() {
         ui->LogsOut->appendPlainText(pr_err + "\n" + pr_out);
         log(pr_err + "\n" + pr_out);
     } else if (argueNum == 1) {
-        ui->LogsOut->appendPlainText(">>>./adb shell pm list packages -3\n");
+        ui->LogsOut->appendPlainText(">>>adb shell pm list packages -3\n");
 
-        log(">>>./adb shell pm list packages -3\n");
+        log(">>>adb shell pm list packages -3\n");
         QProcess process;
 
-        process.start("./adb", {"shell", "pm list packages -3"});
+        process.start("adb", {"shell", "pm list packages -3"});
         process.waitForFinished();
 
         QString pr_out = process.readAllStandardOutput();
@@ -166,11 +166,11 @@ void MainWindow::on_get_pkgList_clicked() {
 
         log(pr_err + "\n" + pr_out);
     } else {
-        ui->LogsOut->appendPlainText(">>>./adb shell pm list packages -s\n");
-        log(">>>./adb shell pm list packages -s\n");
+        ui->LogsOut->appendPlainText(">>>adb shell pm list packages -s\n");
+        log(">>>adb shell pm list packages -s\n");
         QProcess process;
 
-        process.start("./adb", {"shell", "pm list packages -s"});
+        process.start("adb", {"shell", "pm list packages -s"});
         process.waitForFinished();
 
         QString pr_out = process.readAllStandardOutput();
@@ -257,16 +257,16 @@ void MainWindow::on_selAll_checkStateChanged(const Qt::CheckState &arg1) {
 void MainWindow::on_StartBt_clicked() {
     if (!get_pkgList_clicked) {
         if (argueNum == 0) {
-            ui->LogsOut->appendPlainText(">>>./adb shell pm list packages\n");
+            ui->LogsOut->appendPlainText(">>>adb shell pm list packages\n");
             QTextCursor cursor = ui->LogsOut->textCursor();
             cursor.movePosition(QTextCursor::End);
             ui->LogsOut->setTextCursor(cursor);
 
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-            log("./adb shell pm list packages\n");
+            log("adb shell pm list packages\n");
             QProcess process;
 
-            process.start("./adb", {"shell", "pm list packages"});
+            process.start("adb", {"shell", "pm list packages"});
             process.waitForFinished();
 
             QString pr_out = process.readAllStandardOutput();
@@ -281,16 +281,16 @@ void MainWindow::on_StartBt_clicked() {
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
             log(pr_err + "\n" + pr_out);
         } else if (argueNum == 1) {
-            ui->LogsOut->appendPlainText(">>>./adb shell pm list packages -3\n");
+            ui->LogsOut->appendPlainText(">>>adb shell pm list packages -3\n");
             QTextCursor cursor = ui->LogsOut->textCursor();
             cursor.movePosition(QTextCursor::End);
             ui->LogsOut->setTextCursor(cursor);
 
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-            log("./adb shell pm list packages -3\n");
+            log("adb shell pm list packages -3\n");
             QProcess process;
 
-            process.start("./adb", {"shell", "pm list packages -3"});
+            process.start("adb", {"shell", "pm list packages -3"});
             process.waitForFinished();
 
             QString pr_out = process.readAllStandardOutput();
@@ -305,16 +305,16 @@ void MainWindow::on_StartBt_clicked() {
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
             log(pr_err + "\n" + pr_out);
         } else {
-            ui->LogsOut->appendPlainText(">>>./adb shell pm list packages -s\n");
+            ui->LogsOut->appendPlainText(">>>adb shell pm list packages -s\n");
             QTextCursor cursor = ui->LogsOut->textCursor();
             cursor.movePosition(QTextCursor::End);
             ui->LogsOut->setTextCursor(cursor);
 
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-            log("./adb shell pm list packages -s\n");
+            log("adb shell pm list packages -s\n");
             QProcess process;
 
-            process.start("./adb", {"shell", "pm list packages -s"});
+            process.start("adb", {"shell", "pm list packages -s"});
             process.waitForFinished();
 
             QString pr_out = process.readAllStandardOutput();
@@ -365,13 +365,13 @@ void MainWindow::on_StartBt_clicked() {
         if (!state) continue;
 
         std::string query = "pm path "; query += name;
-        ui->LogsOut->appendPlainText(">>>./adb shell" + QString::fromStdString(query));
+        ui->LogsOut->appendPlainText(">>>adb shell" + QString::fromStdString(query));
         log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-        log("./adb shell " + QString::fromStdString(query));
+        log("adb shell " + QString::fromStdString(query));
 
         QProcess process;
 
-        process.start("./adb", {"shell", query.c_str()});
+        process.start("adb", {"shell", query.c_str()});
         process.waitForFinished();
 
         QString PKGpaths = process.readAllStandardOutput();
@@ -402,15 +402,15 @@ void MainWindow::on_StartBt_clicked() {
             query += pkg_path;
 
             log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-            log("./adb pull " + QString::fromStdString(query));
-            ui->LogsOut->appendPlainText(">>>./adb pull ");
+            log("adb pull " + QString::fromStdString(query));
+            ui->LogsOut->appendPlainText(">>>adb pull ");
             QTextCursor cursor = ui->LogsOut->textCursor();
             cursor.movePosition(QTextCursor::End);
             ui->LogsOut->setTextCursor(cursor);
 
             ui->LogsOut->insertPlainText(query.c_str());
 
-            process.start("./adb", {"pull", now_path.c_str(), pkg_path.c_str()});
+            process.start("adb", {"pull", now_path.c_str(), pkg_path.c_str()});
             while (!process.waitForFinished(20)) {
                 QCoreApplication::processEvents();
             }
@@ -548,13 +548,13 @@ void MainWindow::on_ifnddvcs_clicked() {
     QProcess process;
 
     log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-    log("./adb devices\n");
-    ui->ilogsOut->appendPlainText(">>>./adb devices\n");
+    log("adb devices\n");
+    ui->ilogsOut->appendPlainText(">>>adb devices\n");
     QTextCursor cursor = ui->ilogsOut->textCursor();
     cursor.movePosition(QTextCursor::End);
     ui->LogsOut->setTextCursor(cursor);
 
-    process.start("./adb", {"devices"});
+    process.start("adb", {"devices"});
     process.waitForFinished();
 
     QString out = process.readAllStandardOutput();
@@ -728,12 +728,12 @@ void MainWindow::on_istartBt_clicked() {
     for (const auto& [name, obj] : pkgs_paths) {
         if (!obj.first) continue;
 
-        ui->ilogsOut->appendPlainText(">>>./adb install-multiple ");
+        ui->ilogsOut->appendPlainText(">>>adb install-multiple ");
         QTextCursor cursor = ui->ilogsOut->textCursor();
         cursor.movePosition(QTextCursor::End);
         ui->ilogsOut->setTextCursor(cursor);
 
-        QString to_log = "./adb install-multiple ";
+        QString to_log = "adb install-multiple ";
 
         QStringList args {"install-multiple"};
         if (ui->rii->isChecked()) {
@@ -760,7 +760,7 @@ void MainWindow::on_istartBt_clicked() {
 
         QProcess process;
 
-        process.start("./adb", args);
+        process.start("adb", args);
         while (!process.waitForFinished(20)) {
             QCoreApplication::processEvents();
         }
@@ -799,9 +799,9 @@ void MainWindow::closeEvent(QCloseEvent *event) {
     QProcess process;
 
     log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
-    log("./adb kill-server\n");
+    log("adb kill-server\n");
 
-    process.start("./adb", {"kill-server"});
+    process.start("adb", {"kill-server"});
     process.waitForFinished();
 
     event->accept();
