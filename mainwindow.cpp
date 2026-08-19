@@ -365,7 +365,7 @@ void MainWindow::on_StartBt_clicked() {
         if (!state) continue;
 
         std::string query = "pm path "; query += name;
-        ui->LogsOut->appendPlainText(">>>adb shell" + QString::fromStdString(query));
+        ui->LogsOut->appendPlainText(">>>adb shell " + QString::fromStdString(query));
         log("[" + QDateTime::currentDateTime().toString("HH:mm:ss") + "]");
         log("adb shell " + QString::fromStdString(query));
 
